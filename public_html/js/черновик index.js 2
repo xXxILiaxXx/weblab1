@@ -1,0 +1,87 @@
+$(function(){
+    function checkX(x) {
+        x = parseFloat(x);
+        if (isNaN(x) || x < -3 || x > 5) {
+            return true;
+        }
+        return false;
+    }
+
+    function checkY(y) {
+        y = y.replace(',', '.');
+        y = parseFloat(y);
+        if (isNaN(y) || y < -5 || y > 5 || y=="") {
+            return true;
+        }
+        return false;
+    }
+
+    function checkR(r){
+        var validValuesR=[1, 1.5, 2, 2.5, 3];
+        r = parseFloat(r);
+        if (isNaN(r) || r < 1 || r > 3 || !validValuesR.includes(r)) {
+            return true;
+        }
+        return false;
+    }
+
+    $('.choose-input').click(function(){
+        var x = $(this).val();
+        $('#x').val(x);
+        if (checkX(x)) {
+            $('#notification').text('Введите x от -3 до 5');
+        } else {
+            $('#notification').text('');
+        }
+    });
+
+    $('#sendButton').click(function(event){
+        event.preventDefault();
+
+        var x=$('#x').val();
+        var y=$('#y').val();
+        var r=$('#r').val();
+
+        if (checkX(x)) {
+            $('#notification').text('Введите x от -3 до 5');
+            return;
+        }
+
+        if (checkY(y)){
+            $('#notification').text('Выберите y');
+            return;
+        }
+
+        if(checkR(r)){
+            $('#notification').text('Выберите r');
+            return;
+        }
+
+        $.ajax({
+            url:'php/index.php',
+            method: 'GET',
+            data: {x:x, y:y, r:r},
+            success: function(response){
+                if (response.startsWith('Ошибка')) {
+                    $('#notification').text(response);
+                } else {
+                    $('#notification').text('');
+
+                    var savedData = localStorage.getItem('table');
+
+                    // Если в localStorage уже есть данные, добавить новый результат к ним
+                    if (savedData) {
+                        savedData += response;
+                    } else {
+                        savedData = response;
+                    }
+
+                    // Сохранение данных в localStorage
+                    localStorage.setItem('table', savedData);
+
+                    window.location.href = 'results.html';
+                }
+            }
+        });
+    });
+});

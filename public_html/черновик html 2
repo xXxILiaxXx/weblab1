@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная №1</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+<div id="header">
+    <span>Илиев И.И. P3220 вариант №3003</span>
+</div>
+
+<div id="main">
+
+    <div id="graph">
+        <img src="img/graph.png" alt="graph_image">
+    </div>
+
+    <div><p class="form-title"><b>Введите значения:</b></p></div>
+    <div id="form">
+        <form id="data-form">
+            <span>X:</span>
+            <button type="button" class="choose-input" id="x" value="-3">-3</button>
+            <button type="button" class="choose-input" id="x" value="-2">-2</button>
+            <button type="button" class="choose-input" id="x" value="-1">-1</button>
+            <button type="button" class="choose-input" id="x" value="0">0</button>
+            <button type="button" class="choose-input" id="x" value="1">1</button>
+            <button type="button" class="choose-input" id="x" value="2">2</button>
+            <button type="button" class="choose-input" id="x" value="3">3</button>
+            <button type="button" class="choose-input" id="x" value="4">4</button>
+            <button type="button" class="choose-input" id="x" value="5">5</button>
+            <br>
+            <div id="form">
+                <form id="data-form">
+            <span>Y:</span>
+            <input type="text" id="y" name="y" class="choose-input" placeholder="-5...5"><br>
+            <span>R:</span>
+            <select name="r" id="r" class="choose-input">
+                <option value="" disabled selected hidden>Выберите R</option>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+            </select><br>
+            <div id="notification"></div>
+            <input type="submit" id="sendButton" class="send-input"><br>
+            <input type="reset" name="reset-btn" id="reset-bnt" class="send-input">
+        </form>
+        <button class="send-input"><a href="results.html">Таблица</a></button>
+    </div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная №1</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+
+<div id="header">
+    <span>Илиев И.И. P3220 вариант №3003</span>
+</div>
+
+<div id="main">
+
+    <div id="table">
+        <table id="results">
+            <caption><b>Таблица</b></caption>
+            <thead>
+            <tr>
+                <th>X</th>
+                <th>Y</th>
+                <th>R</th>
+                <th>hit</th>
+                <th>time</th>
+                <th>execute</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <button class="send-input"><a href="index.html">Назад</a></button>
+    <button id="clearButton" class="send-input">Очистить таблицу</button>
+    <div id="clearTable"></div>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/results.js"></script>
+</body>
+</html>
+<style>
+    /*Base styles*/
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    #table{
+        padding: 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #header{
+        height: 30px;
+        background-color: #00fff7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: serif;
+        color: #070707;
+        font-size: 25px;
+    }
+    table{
+        border-collapse: collapse;
+        width: 61.5%;
+    }
+    th, tr, td{
+        border: 1px solid rgb(164, 175, 175);
+        border-collapse: collapse;
+        width: 5%;
+    }
+    caption{
+        border: 1px solid rgb(164, 175, 175);
+        background-color: rgb(13, 245, 237);
+    }
+    .send-input{
+        width: 15%;
+    }
+    .choose-input{
+        width: 10%;
+    }
+    .form-title{
+        border: 1px solid rgb(164, 175, 175);
+        background-color: rgb(13, 245, 237);
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .send-input, .choose-input {
+        font-weight: bold;
+    }
+    #notification{
+        color: red;
+    }
+</style>
